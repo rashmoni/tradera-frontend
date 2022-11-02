@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     ;(async () => {
-      const response = await fetch('http://localhost:8081/api/user', {
+      const response = await fetch('http://llocalhost:8081/api/user', {
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
       })

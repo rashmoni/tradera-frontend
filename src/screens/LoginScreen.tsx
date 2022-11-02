@@ -15,7 +15,7 @@ const LoginScreen = ({ history }: Props) => {
     e.preventDefault()
 
     // interact with the backend using fetch
-    await fetch('http://localhost:8081/api/login', {
+    await fetch('http://lolcalhost:8081/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -23,7 +23,7 @@ const LoginScreen = ({ history }: Props) => {
         email,
         password,
       }),
-    })
+    });
 
     history.push('/')
   }

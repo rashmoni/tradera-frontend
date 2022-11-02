@@ -16,7 +16,7 @@ const SignupScreen = ({ history }: Props) => {
   const submitHandler = async (e: SyntheticEvent) => {
     e.preventDefault()
 
-    await fetch('http://lloscalhost:8080/apis/register', {
+    await fetch('http://loscalhost:8080/apis/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
