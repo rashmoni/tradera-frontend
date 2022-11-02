@@ -3,10 +3,10 @@ import NavigationBar from "./NavigationBar";
 export default function Banner () {
 
     return (
-        <header className="header">
+        <header className="banner">
             <NavigationBar />
             <img 
-            className="background-image"
+            className="backgroundImage"
             src={BackgroundImage}
             />
         </header>

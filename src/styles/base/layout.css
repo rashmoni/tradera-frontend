@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+img {
+    /* make images responsible (mobile first) */
+    max-width: 100%;
+    height: auto;
+  
+    object-fit: cover; /* To avoid streched images that look distorted */
+  }
