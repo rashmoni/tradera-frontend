@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Banner from "../components/Banner";
 import StatusEmpty from "../components/StatusEmpty";
 import StatusError from "../components/StatusError";
 import StatusLoading from "../components/StatusLoading";
@@ -12,7 +13,7 @@ export default function Landing() {
  
    // Properties
    const endPoint = "http://localhost:8000/products/"
-
+/*
    // Methods
    useEffect(() => {
     setStatus(eStatus.LOADING);
@@ -37,9 +38,12 @@ export default function Landing() {
   if (status === eStatus.ERROR) return <StatusError />;
   if (data.length === 0) return <StatusEmpty />;
 
+  */
+ 
   return(
     <div id="landing">
         Landing page
+        <Banner />
     </div>
   );
 }
