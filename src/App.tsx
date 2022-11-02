@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      Tradera
-      </header>
+      <header className="App-header">Tradera</header>
     </div>
   );
 }
