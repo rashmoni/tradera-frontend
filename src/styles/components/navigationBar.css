@@ -1,7 +1,6 @@
 .navigationBar {
   display: flex; /* for aligning items using modern CSS */
   position: fixed;
-  background-color: black;
   width: 100%;
   height: var(--navigation-bar);
   padding: 0 var(--page-space);
@@ -15,8 +14,11 @@
 
 .navigationBar a {
   text-decoration: none;
-  color: white;
+  color: black;
+  padding: 10px;
+  background-color: white;
   margin-right: var(--space-medium);
+  text-align: center;
 }
 
 .navigationBar .search {
