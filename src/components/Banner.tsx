@@ -25,15 +25,18 @@ export default function Banner({ setProducts }: iProps) {
 
   return (
     <header className="banner">
-      <NavigationBar />
-      <img className="backgroundImage" src={BackgroundImage} />
-      <form id="searchForm" onSubmit={(event) => onSubmit(event)}>
-        <input
+      <input
           type="text"
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
-        <input type="submit" value="search" />
+      <input type="submit" value="search" />
+      <NavigationBar />
+      
+      <img className="backgroundImage" src={BackgroundImage} />
+      <form id="searchForm" onSubmit={(event) => onSubmit(event)}>
+        
+        
       </form>
     </header>
   );

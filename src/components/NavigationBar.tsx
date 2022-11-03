@@ -1,3 +1,4 @@
+//Node modules
 export default function NavigationBar() {
     return (
         <nav className="navigationBar">

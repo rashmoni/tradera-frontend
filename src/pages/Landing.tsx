@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
+import NavigationBar from "../components/NavigationBar";
 import StatusEmpty from "../components/StatusEmpty";
 import StatusError from "../components/StatusError";
 import StatusLoading from "../components/StatusLoading";
@@ -42,6 +43,7 @@ export default function Landing() {
 
   return (
     <div id="landing">
+      <NavigationBar />
       Landing page
       <Banner setProducts={setProducts} />
     </div>
