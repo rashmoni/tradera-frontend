@@ -7,13 +7,13 @@ import eStatus from "../interfaces/eStatus";
 import iProduct from "../interfaces/iProduct";
 
 export default function Landing() {
-   // Local state
-   const [status, setStatus] = useState(eStatus.LOADING);
-   const [data, setData] = useState(new Array<iProduct>());
- 
-   // Properties
-   const endPoint = "http://localhost:8000/products/"
-/*
+  // Local state
+  const [status, setStatus] = useState(eStatus.LOADING);
+  const [products, setProducts] = useState(new Array<iProduct>());
+
+  // Properties
+  const endPoint = "http://localhost:8000/products/";
+ /* 
    // Methods
    useEffect(() => {
     setStatus(eStatus.LOADING);
@@ -24,7 +24,7 @@ export default function Landing() {
    }, []);
 
    function onSuccess(data: iProduct[]) {
-    setData(data);
+    setProducts(data);
     setStatus(eStatus.READY);
   }
 
@@ -36,14 +36,14 @@ export default function Landing() {
   // Safeguards
   if (status === eStatus.LOADING) return <StatusLoading />;
   if (status === eStatus.ERROR) return <StatusError />;
-  if (data.length === 0) return <StatusEmpty />;
+  if (products.length === 0) return <StatusEmpty />;
 
-  */
- 
-  return(
+ */ 
+
+  return (
     <div id="landing">
-        Landing page
-        <Banner />
+      Landing page
+      <Banner setProducts={setProducts} />
     </div>
   );
 }
