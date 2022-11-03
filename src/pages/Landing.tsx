@@ -44,7 +44,6 @@ export default function Landing() {
   return (
     <div id="landing">
       <NavigationBar />
-      Landing page
       <Banner setProducts={setProducts} />
     </div>
   );

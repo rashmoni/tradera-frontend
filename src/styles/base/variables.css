@@ -1,0 +1,42 @@
+/* Colors */
+:root {
+    --color-tradera-yellow: #fbf882;
+    --color-gray: #d9d9d9;
+  }
+  
+  /* Spacing */
+  :root {
+    --space-small: 8px;
+    --space-medium: 16px;
+    --space-big: 32px;
+  }
+  
+  /* Other */
+  :root {
+    --default-text-size: 15px; /* to sync the font size of the paragraph to other elements that uses the same size. */
+    --page-space: 50px; /* padding used between the content and the page or modal */
+    --radius: 4px;
+    --navigation-bar: 65px; /* so we can position elements below the navbar */
+  }
+  
+  /* CSS cannot handle variables for media queries, but we list them here so everyone is on the same page */
+  /* Media queries */
+  /* Larger than mobile */
+  @media (min-width: 400px) {
+  }
+  
+  /* Larger than phablet */
+  @media (min-width: 550px) {
+  }
+  
+  /* Larger than tablet */
+  @media (min-width: 750px) {
+  }
+  
+  /* Larger than desktop */
+  @media (min-width: 1000px) {
+  }
+  
+  /* Larger than Desktop HD */
+  @media (min-width: 1200px) {
+  }

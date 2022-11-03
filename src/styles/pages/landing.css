@@ -1,4 +1,4 @@
 #landing .banner {
-    padding-top: 0;
-    margin-bottom: 32;
+    padding-top: var(--nav-bar);
+  margin-bottom: var(--space-big);
 }

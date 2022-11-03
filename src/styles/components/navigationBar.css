@@ -1,10 +1,24 @@
 .navigationBar {
-    display: flex;
-    position: fixed;
-    left: 0;
-    background-color: transparent;
-    width: 100%;
-    height: 40;
-    padding: 0;
-    align-items: center;
-  }
+  display: flex; /* for aligning items using modern CSS */
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: var(--navigation-bar);
+  padding: 0 var(--page-space);
+  align-items: center; /* used with flex to align items on the vertical axis */
+}
+
+.navigationBar img {
+  height: 25px;
+  margin-right: var(--space-big);
+}
+
+.navigationBar a {
+  text-decoration: none;
+  color: white;
+  margin-right: var(--space-medium);
+}
+
+.navigationBar .search {
+  margin-left: auto; /* used with flex to push the item to the oposite side */
+}
