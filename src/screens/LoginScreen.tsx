@@ -15,7 +15,7 @@ const LoginScreen = ({ history }: Props) => {
     e.preventDefault()
 
     // interact with the backend using fetch
-    await fetch('https://my.api.mockaroo.com/login', {
+    await fetch('https://my.api.mockaroos.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
