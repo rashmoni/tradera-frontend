@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { FormEvent, useEffect, useState } from "react";
 import BackgroundImage from "../assets/images/banner.jpg";
 
@@ -24,11 +25,11 @@ export default function Banner({ setProducts }: iProps) {
 
   return (
     <header className="banner">
-      <img className="backgroundImage" src={BackgroundImage} />
-      <form id="searchForm" onSubmit={(event) => onSubmit(event)}>
-        
-        
-      </form>
+      <img 
+      className="backgroundImage" 
+      src={BackgroundImage} 
+      />
+      
     </header>
   );
 }

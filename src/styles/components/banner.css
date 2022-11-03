@@ -8,7 +8,37 @@
     grid-row: 1 / -1;
   }
 
-.banner .backgroundImage {
+.backgroundImage {
     width: 100%;
     height: 100%;
   }
+
+  
+.banner .content {
+  max-width: 460px;
+  padding: var(--page-space);
+}
+
+.banner .logo {
+  margin-bottom: var(--space-medium);
+}
+
+/* Specific changes for the hero inside the modal */
+.banner-details {
+  place-items: end start;
+}
+
+/* Media queries */
+/* Larger than mobile */
+@media (min-width: 400px) {
+  .banner .backgroundImage {
+    aspect-ratio: 16/10;
+  }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+  .banner .backgroundImage {
+    aspect-ratio: 21/9;
+  }
+}

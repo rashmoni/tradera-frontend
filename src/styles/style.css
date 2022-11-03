@@ -4,7 +4,9 @@
 @import "./base/layout";
 
 /* Components */
+@import "./components/banner.css";
 @import "./components/navigationBar.css";
+
 
 /* Pages */
 @import "./pages/landing.css";
