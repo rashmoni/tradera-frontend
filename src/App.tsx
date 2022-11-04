@@ -11,7 +11,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />}/>
-          <Route path="/product/:code" element={<SingleProduct />} />
+          <Route path="/product" element={<SingleProduct />} />
           <Route path="/selling/new" element={<NewAd />} />
         </Routes>
       </BrowserRouter>

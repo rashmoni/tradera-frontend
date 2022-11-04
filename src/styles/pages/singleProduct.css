@@ -1,0 +1,25 @@
+.singleProductContainer {
+    display: grid;
+    grid-template-areas: 
+    'productImage productDetails productDetails';
+    grid-gap: 0px;
+}
+
+.imageContainer {
+    grid-area: productImage;
+    margin-top: var(--navigation-bar);
+    margin-left:auto;
+    padding:10px;
+}
+
+.productDetailContainer {
+    grid-area: productDetails;
+    margin-top: var(--navigation-bar);
+}
+.productDetailContainer > div {
+    margin-right: auto;
+    margin-left: 10px;
+}
+.productDescription {
+    grid-area: productDescription;
+}
