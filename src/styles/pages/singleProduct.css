@@ -20,6 +20,10 @@
     margin-right: auto;
     margin-left: 10px;
 }
-.productDescription {
-    grid-area: productDescription;
+
+.productBid {
+    background-color: var(--color-green);
+    padding: 10px;
+    color: white;
+    border-width: 0;
 }

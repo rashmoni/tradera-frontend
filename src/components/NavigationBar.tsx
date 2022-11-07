@@ -18,7 +18,8 @@ export default function NavigationBar() {
       <Link to={CustomerLinks[0].url}>
         <img src={Logo} />
       </Link>
-      {Links}
+      <div className="navbarLinks">{Links}</div>
+      
     </nav>
   );
 }

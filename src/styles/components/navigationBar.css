@@ -24,3 +24,9 @@
 .navigationBar .search {
   margin-left: auto; /* used with flex to push the item to the oposite side */
 }
+
+.navbarLinks {
+  display: flex;
+  width:100%;
+  justify-content: flex-end;
+}

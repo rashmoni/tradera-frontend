@@ -31,14 +31,13 @@ export default function SingleProduct() {
             <p>Time remaining: 11min 13 sec</p>
             <p>Ends Nov 2 09:34</p>
             <button
+            className="productBid"
             style={{width:"40%"}}
             >Bid</button>
             </div>
         </section>
       </div>
-      <section
-      className="productDescription"
-      >Description goes here</section>
+      
     </div>
   );
 }
