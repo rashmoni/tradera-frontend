@@ -13,7 +13,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />}/>
-          <Route path="/product" element={<SingleProduct />} />
+          <Route path="/auction" element={<SingleProduct />} />
           <Route path="/selling/new" element={<NewAd />} />
           <Route path="/login" element={<LoginScreen history={undefined} />}/>
           <Route path="/signup" element={<SignupScreen history={undefined} />} />

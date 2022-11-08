@@ -1,4 +1,27 @@
 #landing .banner {
-    padding-top: var(--nav-bar);
+  padding-top: var(--nav-bar);
   margin-bottom: var(--space-big);
+}
+
+#landing .item-card {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#landing .card-list {
+  margin-bottom: var(--space-big);
+  padding: 0 var(--page-space);
+}
+
+#landing .card-list div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-gap: var(--space-small);
+  overflow-y: scroll;
+
+}
+
+/* Remove scrollbar space */
+#landing .card-list div::-webkit-scrollbar {
+  display: none;
 }

@@ -6,6 +6,8 @@
 /* Components */
 @import "./components/banner.css";
 @import "./components/navigationBar.css";
+@import "./components/item-card.css";
+@import "./components/statuses.css";
 
 
 /* Pages */

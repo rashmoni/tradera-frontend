@@ -3,33 +3,39 @@ import { FormEvent, useEffect, useState } from "react";
 import BackgroundImage from "../assets/images/banner.jpg";
 
 interface iProps {
-  setProducts: Function;
+  setItems: Function;
 }
 
-export default function Banner({ setProducts }: iProps) {
+export default function Banner({ setItems }: iProps) {
   // Local state
   const [searchTerm, setSearchTerm] = useState("");
   const [submitted, setSubmitted] = useState(false);
-
+ 
   // Methods
   useEffect(() => {
-    fetch("http://localhost:8080/products/?search=".concat(searchTerm))
+    fetch("http://localhost:9000/auctions/?search=".concat(searchTerm))
       .then((response) => response.json())
-      .then((json) => setProducts(json));
+      .then((json) => setItems(json));
+      console.log(searchTerm);
   }, [submitted]);
+  
 
   function onSubmit(event: FormEvent<HTMLFormElement>): void {
-    setSubmitted(!submitted);
     event.preventDefault();
+    setSubmitted(!submitted);
   }
 
   return (
     <header className="banner">
-      <img 
-      className="backgroundImage" 
-      src={BackgroundImage} 
-      />
-      
+      <img className="backgroundImage" src={BackgroundImage} />
+      <form id="searchForm" onSubmit={(event) => onSubmit(event)}>
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+        <input type="submit" value="search" />
+      </form>
     </header>
   );
 }

@@ -1,50 +1,40 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
+import CardContainer from "../components/CardContainer";
 import NavigationBar from "../components/NavigationBar";
-import StatusEmpty from "../components/StatusEmpty";
-import StatusError from "../components/StatusError";
-import StatusLoading from "../components/StatusLoading";
-import eStatus from "../interfaces/eStatus";
-import iProduct from "../interfaces/iProduct";
+
+import iProduct from "../interfaces/iAuctionItem";
 
 export default function Landing() {
   // Local state
-  const [status, setStatus] = useState(eStatus.LOADING);
-  const [products, setProducts] = useState(new Array<iProduct>());
+  const [items, setItems] = useState(new Array<iProduct>());
 
   // Properties
-  const endPoint = "http://localhost:8000/products/";
- /* 
-   // Methods
-   useEffect(() => {
-    setStatus(eStatus.LOADING);
-    fetch(endPoint)
-    .then((response) => response.json())
-    .then((json) => onSuccess(json))
-    .catch((error) => onFailure(error));
-   }, []);
+  const endPoint = "http://localhost:9000/auctions";
 
-   function onSuccess(data: iProduct[]) {
-    setProducts(data);
-    setStatus(eStatus.READY);
+  // Methods
+  useEffect(() => {
+    fetch(endPoint)
+      .then((response) => response.json())
+      .then((json) => onSuccess(json))
+      .catch((error) => onFailure(error));
+  }, []);
+
+  function onSuccess(data: iProduct[]) {
+    setItems(data);
   }
 
   function onFailure(error: string) {
     console.error(error);
-    setStatus(eStatus.ERROR);
   }
 
-  // Safeguards
-  if (status === eStatus.LOADING) return <StatusLoading />;
-  if (status === eStatus.ERROR) return <StatusError />;
-  if (products.length === 0) return <StatusEmpty />;
-
- */ 
+  console.log(items);
 
   return (
     <div id="landing">
       <NavigationBar />
-     <Banner setProducts={setProducts} /> 
+      <Banner setItems={setItems} />
+      <CardContainer data={items} />
     </div>
   );
 }

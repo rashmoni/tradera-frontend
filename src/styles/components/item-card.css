@@ -1,0 +1,9 @@
+.item-card {
+  overflow: hidden;
+  width: 282px;
+  height: 360px;
+  background-color: white;
+  border-radius: 0;
+  cursor: pointer;
+}
+

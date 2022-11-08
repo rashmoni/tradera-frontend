@@ -26,4 +26,5 @@ p {
   p {
     font-size: var(--default-text-size);
     margin-bottom: var(--space-medium);
+    margin-top: var(--space-medium);
   }

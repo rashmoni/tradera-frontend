@@ -1,6 +1,6 @@
 .banner {
     display: grid;
-    place-items: center start;
+    place-items: center;
   }
   
   .banner > * {
@@ -13,20 +13,6 @@
     height: 100%;
   }
 
-  
-.banner .content {
-  max-width: 460px;
-  padding: var(--page-space);
-}
-
-.banner .logo {
-  margin-bottom: var(--space-medium);
-}
-
-/* Specific changes for the hero inside the modal */
-.banner-details {
-  place-items: end start;
-}
 
 /* Media queries */
 /* Larger than mobile */
