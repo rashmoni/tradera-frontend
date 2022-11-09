@@ -4,7 +4,7 @@ import NavigationBar from "../components/NavigationBar";
 import SingleProductImage from "../assets/images/product.png";
 
 export default function SingleProduct() {
-  // This code in the pageURL could be the product id
+  // This code in the pageURL is the auction item id
   const { code } = useParams();
 
   return (

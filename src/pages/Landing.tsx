@@ -33,7 +33,7 @@ export default function Landing() {
   return (
     <div id="landing">
       <NavigationBar />
-      <Banner setItems={setItems} />
+      <Banner />
       <CardContainer data={items} />
     </div>
   );
