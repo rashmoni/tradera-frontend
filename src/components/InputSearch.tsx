@@ -7,8 +7,7 @@ interface iProps {
   setSearchTerm: Function;
 }
 
-export default function InputSearch({ handleSearch, searchTerm, setSearchTerm }: iProps) {
-  /*
+export default function InputSearch() {
   // Global state
   const navigate = useNavigate();
 
@@ -21,12 +20,18 @@ export default function InputSearch({ handleSearch, searchTerm, setSearchTerm }:
     navigate(`search/${searchTerm}`);
   }
 
-*/
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (searchTerm) {
+//      navigate("/");
+      navigate(`search/${searchTerm}`);
+    }
+  };
 
   return (
     <form onSubmit={(event) => handleSearch(event)}>
       <input
-      id="search-form"
+        id="search-form"
         type="text"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}

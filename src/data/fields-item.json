@@ -1,0 +1,43 @@
+[
+  {
+    "key": "item_image_url",
+    "autoFocus": false,
+    "label": "Upload an image",
+    "placeholder": "www.google.com/image.png",
+    "required": false,
+    "type": "image",
+    "imageWidth": 400
+  },
+  {
+    "key": "item_name",
+    "autoFocus": true,
+    "label": "Heading",
+    "placeholder": "Men's Jacket",
+    "required": true,
+    "type": "text"
+  },
+  {
+    "key": "description",
+    "autoFocus": false,
+    "label": "Description",
+    "placeholder": "A beautiful jacket in good condition...",
+    "required": true,
+    "type": "text"
+  },
+  {
+    "key": "initial_price",
+    "autoFocus": false,
+    "label": "Initial price",
+    "placeholder": "100",
+    "required": true,
+    "type": "text"
+  },
+  {
+    "key": "stop_date",
+    "autoFocus": false,
+    "label": "Ad length",
+    "placeholder": "date box",
+    "required": true,
+    "type": "date"
+  }
+]
