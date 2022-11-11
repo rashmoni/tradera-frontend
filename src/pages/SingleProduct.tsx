@@ -66,7 +66,7 @@ export default function SingleProduct() {
   return (
     <div id="singleProduct">
       <NavigationBar />
-      <SingleProductCard data={product} />
+      <SingleProductCard data={product} bids={bids} />
     </div>
   );
 }
