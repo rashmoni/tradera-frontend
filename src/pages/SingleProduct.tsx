@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import NavigationBar from "../components/NavigationBar";
-import SingleProductImage from "../assets/images/product.png";
 
 
 import iProduct from "../interfaces/iAuctionItem";

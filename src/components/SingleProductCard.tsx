@@ -1,4 +1,3 @@
-import iAuctionItem from "../interfaces/iAuctionItem";
 import StatusEmpty from "./StatusEmpty";
 import SingleProductImage from "../assets/images/product.png";
 
@@ -7,8 +6,6 @@ interface iProps {
 }
 
 export default function SingleProductCard({ data }: iProps) {
-
-
   // Components
 
   // Safeguard
