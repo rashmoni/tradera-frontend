@@ -1,35 +1,37 @@
 import { FormEvent, useEffect, useState } from "react";
 import {
-  useLocation,
-  useNavigate,
   useParams,
   useSearchParams,
 } from "react-router-dom";
 import CardContainer from "../components/CardContainer";
-import InputSearch from "../components/InputSearch";
+import InputQuery from "../components/InputQuery";
 import NavigationBar from "../components/NavigationBar";
 import iProduct from "../interfaces/iAuctionItem";
+
 
 export default function Search() {
   // Global state
   const { code } = useParams();
-  const navigate = useNavigate();
-  // useSearchParams
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // Local state
   const [items, setItems] = useState(new Array<iProduct>());
 
   // Properties
-  // const endPoint = "http://localhost:9000/auctions/search/";
-  const endPoint = "http://localhost:9000/auctions";
+  const endPoint = "http://localhost:9000/auctions/";
 
   useEffect(() => {
-    //    fetch(endPoint + code)
-    fetch(endPoint)
+    fetch(endPoint + searchParams.get("query"))
       .then((response) => response.json())
       .then((json) => onSuccess(json))
       .catch((error) => onFailure(error));
-    console.log("Fetched with code:" + code);
+  }, [searchParams]);
+
+  useEffect(() => {
+    fetch(endPoint + code)
+      .then((response) => response.json())
+      .then((json) => onSuccess(json))
+      .catch((error) => onFailure(error));
   }, [code]);
 
   function onSuccess(data: iProduct[]) {
@@ -42,10 +44,13 @@ export default function Search() {
 
   return (
     <div id="search">
+      <NavigationBar />
       <div className="search-field">
-        <InputSearch />
+        <InputQuery
+          setSearchParams={setSearchParams}
+          searchParams={searchParams}
+        />
       </div>
-      <p>Search page for {code}</p>
       <CardContainer data={items} />
     </div>
   );
