@@ -16,13 +16,11 @@ export default function SingleProductCard({ data, bids }: iProps) {
   // if (data.length === 0) return <StatusEmpty />;
   if (data === null) return <StatusEmpty />;
 
-  console.log(bids);
+  
   const bid: iBid = bids[bids.length-1];
-  console.log(bid);
   let amount: number= 0;
   if(bid?.amount) {
-     amount = bid.amount;
-     console.log(amount);
+     amount = bid.amount; 
   }
  
   return (
