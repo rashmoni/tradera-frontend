@@ -1,0 +1,11 @@
+.input-image {
+  width: 200px;
+}
+
+.input-image img {
+  cursor: pointer;
+}
+
+.input-image input[type="file"] {
+  display: none;
+}
