@@ -18,7 +18,7 @@ export default function Search() {
   const [items, setItems] = useState(new Array<iProduct>());
 
   // Properties
-  const endPoint = "http://localhost:9000/auctions/";
+  const endPoint = "http://localhost:9000/auctions/search/";
 
   useEffect(() => {
     fetch(endPoint + searchParams.get("query"))
