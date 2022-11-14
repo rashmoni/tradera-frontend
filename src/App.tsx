@@ -6,6 +6,7 @@ import NewAd from "./pages/NewAd";
 import Search from "./pages/Search";
 import SignupScreen from "./pages/SignUpScreen";
 import SingleProduct from "./pages/SingleProduct";
+import SendingEmail from "./services/SendingEmail";
 import "./styles/style.css"
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />}/>
+          <Route path="/email" element={<SendingEmail />} />
           <Route path="/auction/:code" element={<SingleProduct />} />
           <Route path="/selling/new" element={<NewAd />} />
           <Route path="/search/:code" element={<Search />} />
