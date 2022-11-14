@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 // Project files
 import Placeholder from "../assets/images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";

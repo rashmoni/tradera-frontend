@@ -7,6 +7,7 @@ import NavigationBar from "../components/NavigationBar";
 import iProduct from "../interfaces/iAuctionItem";
 import SingleProductCard from "../components/SingleProductCard";
 import iBid from "../interfaces/iBid";
+import SingleProductPageService from "../services/SingleProductPageService";
 
 export default function SingleProduct() {
 
@@ -25,17 +26,15 @@ export default function SingleProduct() {
   const [readyForBids, setReadyForBids] = useState(false);
   const [bids, setBids] = useState(new Array<iBid>());
 
-  const endPoint = `http://localhost:9000/auctions/${params.code}`;
-
   // Methods
   useEffect(() => {
-    console.log(endPoint);
-    fetch(endPoint)
-      .then((response) => response.json())
+    fetchProductData();
+  }, []);
+  const fetchProductData = () => {
+    SingleProductPageService.getProductById(params.code)
       .then((json) => onSuccess(json))
       .catch((error) => onFailure(error));
-  }, []);
-
+  }
   function onSuccess(data: iProduct) {
     setProduct(data);
     setReadyForBids(true);
@@ -47,9 +46,7 @@ export default function SingleProduct() {
   console.log(product)
 
   useEffect(() => {
-    const endPointBid = "http://localhost:9000/bids/";
-    fetch(endPointBid + params.code)
-      .then((response) => response.json())
+    SingleProductPageService.getBidByItemId()
       .then((json) => onSuccessBids(json))
       .catch((error) => onFailureBids(error));
   }, [readyForBids]);
