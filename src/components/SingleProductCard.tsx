@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { useState } from "react";
 import StatusEmpty from "./StatusEmpty";
-import SingleProductImage from "../assets/images/product.png";
 import iAuctionItem from "../interfaces/iAuctionItem";
 import Placeholder from "../assets/images/placeholder.jpg";
 import iBid from "../interfaces/iBid";
@@ -13,7 +13,8 @@ interface iProps {
 
 
 export default function SingleProductCard({ data, bids }: iProps) {
-  // Components
+  // Local state
+const [newBid, setNewBid] = useState({})
 
   // Safeguard
   // if (data.length === 0) return <StatusEmpty />;
@@ -28,13 +29,16 @@ export default function SingleProductCard({ data, bids }: iProps) {
 
   async function onClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-    SingleProductPageService.createNewBid(5)
+    setNewBid({traderId:2,
+              auctionItemId:1,
+              amount:450});
+    SingleProductPageService.createNewBid(newBid)
       .then(onSuccess)
       .catch((error) => onFailure(error));
   }
 
   function onSuccess() {
-    alert("Item created!");
+    alert("Bidding!");
   }
 
   function onFailure(error: string) {
