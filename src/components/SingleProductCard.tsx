@@ -31,7 +31,7 @@ const [newBid, setNewBid] = useState({})
     event.preventDefault();
     setNewBid({traderId:2,
               auctionItemId:1,
-              amount:450});
+              amount: amount+10});
     SingleProductPageService.createNewBid(newBid)
       .then(onSuccess)
       .catch((error) => onFailure(error));
