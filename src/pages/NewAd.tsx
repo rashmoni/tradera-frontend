@@ -2,8 +2,15 @@ import { FormEvent, useState } from "react";
 import ListInput from "../components/ListInput";
 import Fields from "../data/fields-item.json";
 import NavigationBar from "../components/NavigationBar";
+import iUser from "../interfaces/iUser";
+import LoginScreen from "./LoginScreen";
 
-export default function NewAd() {
+interface iProps {
+  user : iUser;
+  setUser : Function
+}
+
+export default function NewAd({user, setUser} : iProps) {
   // Local state
   const [form, setForm] = useState({});
 
@@ -14,7 +21,7 @@ export default function NewAd() {
 
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    var item = { ...form };
+    var item = { ...form, "owner_id" : user.id};
 
     event.preventDefault();
     console.log(item);
@@ -36,11 +43,13 @@ export default function NewAd() {
     alert("Could not create item");
   }
 
+  if (user.id === 0) return <LoginScreen user={user} setUser={setUser} />;
+
   return (
     <div id="new-ad">
       <NavigationBar />
       <div id="form-section">
-        <h1>Create new ad</h1>
+        <h1>Create new ad, {user.name} !</h1>
         <form className="form" onSubmit={onSubmit}>
           <h1>What do you want to sell?</h1>
           <ListInput fields={Fields} state={[form, setForm]} />

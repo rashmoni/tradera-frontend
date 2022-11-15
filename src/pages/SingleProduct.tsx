@@ -7,8 +7,15 @@ import NavigationBar from "../components/NavigationBar";
 import iProduct from "../interfaces/iAuctionItem";
 import SingleProductCard from "../components/SingleProductCard";
 import iBid from "../interfaces/iBid";
+import iUser from "../interfaces/iUser";
+import LoginScreen from "./LoginScreen";
 
-export default function SingleProduct() {
+interface iProps {
+  user: iUser
+  setUser: Function
+}
+
+export default function SingleProduct({user, setUser}: iProps) {
 
   // This code in the pageURL is the auction item id
   const params = useParams();
@@ -62,6 +69,8 @@ export default function SingleProduct() {
   function onFailureBids(error: string) {
     console.error(error);
   }
+
+  if (user.id === 0) return <LoginScreen user={user} setUser={setUser} />;
 
   return (
     <div id="singleProduct">

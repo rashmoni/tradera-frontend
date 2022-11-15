@@ -1,32 +1,37 @@
 import { SyntheticEvent, useState } from 'react'
 import FormContainer from '../components/FormContainer'
 import { Form, Button } from 'react-bootstrap'
-
+import { useNavigate } from 'react-router-dom'
+/*
 interface Props {
   history: any
 }
+*/
 
-const SignupScreen = ({ history }: Props) => {
+const SignupScreen = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const navigate = useNavigate();
+
   const submitHandler = async (e: SyntheticEvent) => {
     e.preventDefault()
 
-    await fetch('http://localhost:8080/apis/register', {
+    await fetch('http://localhost:9000/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        first_name: firstName,
-        last_name: lastName,
+        name: firstName,
+   //     last_name: lastName,
         email,
-        password,
+        password
       }),
     })
 
-    history.push('/login')
+//    history.push('/login')
+    navigate("/login");
   }
 
   return (

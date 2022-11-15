@@ -1,26 +1,20 @@
 // Node modules
-import { BrowserRouter, Routes, Route, useSearchParams } from "react-router-dom";
-import Landing from "./pages/Landing";
-import LoginScreen from "./pages/LoginScreen";
-import NewAd from "./pages/NewAd";
-import Search from "./pages/Search";
-import SignupScreen from "./pages/SignUpScreen";
-import SingleProduct from "./pages/SingleProduct";
-import "./styles/style.css"
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CustomerRoutes from "./routes/CustomerRoutes";
+import UnloggedRoutes from "./routes/UnlogedRoutes";
+import "./styles/style.css";
 
 export default function App() {
- 
+  // Global state
+
+  const [user, setUser] = useState({ id: 0, name: "", email: "" });
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing />}/>
-          <Route path="/auction/:code" element={<SingleProduct />} />
-          <Route path="/selling/new" element={<NewAd />} />
-          <Route path="/search/:code" element={<Search />} />
-          <Route path="/login" element={<LoginScreen history={undefined} />}/>
-          <Route path="/signup" element={<SignupScreen history={undefined} />} />
-        </Routes>
+        {<UnloggedRoutes user={user} setUser={setUser} />}
+        {<CustomerRoutes user={user} setUser={setUser} />}
       </BrowserRouter>
     </div>
   );

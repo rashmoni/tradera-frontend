@@ -1,31 +1,54 @@
 import { SyntheticEvent, useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
+import iUser from "../interfaces/iUser";
 
-interface Props {
-  history: any;
+interface iProps {
+  user: iUser,
+  setUser: Function
 }
 
-const LoginScreen = ({ history }: Props) => {
+const LoginScreen = ({user, setUser}: iProps) => {
+   // Global state
+  
+   const navigate = useNavigate();
+   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submitHandler = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    // interact with the backend using fetch
-    await fetch("https://my.api.mockaroos.com/login", {
+    await fetch("http://localhost:9000/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      credentials: "include",
       body: JSON.stringify({
         email,
         password,
-      }),
-    });
+      })
 
-    history.push("/");
+    })      
+    .then((response) => response.json())
+    .then((json) => onSuccess(json))
+    .catch((error) => onFailure(error));
   };
+
+  function onSuccess(returningUser: iUser) {
+    console.log(returningUser);
+    setUser(returningUser);
+    user.id = returningUser.id;
+    console.log(user);
+    if(returningUser.id === 0) {
+      return <LoginScreen user={user} setUser={setUser} />
+    }
+    navigate("/");
+  }
+
+  function onFailure(error: string) {
+    console.error(error);
+    alert(error);
+  }
 
   return (
     <section>
@@ -58,6 +81,11 @@ const LoginScreen = ({ history }: Props) => {
             </Button>
           </Form>
         </FormContainer>
+        <footer>
+          <p>
+            New to Tradera? <Link to="/registration">Sign up now</Link>.
+          </p>
+        </footer>
       </div>
     </section>
   );
