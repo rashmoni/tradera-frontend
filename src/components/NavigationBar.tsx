@@ -12,7 +12,7 @@ interface iProps {
 
 export default function NavigationBar({setUser}: iProps) {
   const navigate = useNavigate();
-  
+
   //Components
   const Links = CustomerLinks.map((item) => (
     <Link key={item.id} to={item.url}>
@@ -32,12 +32,12 @@ export default function NavigationBar({setUser}: iProps) {
       </Link>
       <div className="navbarLinks">{Links}</div>
       <button
-        className="signOut"
+        className="button-signOut"
           onClick={() => {
             handleClick();
           }}
         >
-          <p>Sign out</p>
+          <p>Logout</p>
         </button>
       
     </nav>

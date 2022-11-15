@@ -1,5 +1,4 @@
-button,
-.button {
+.button-green {
   min-width: 200px;
   height: 50px;
   margin-right: var(--space-small);
@@ -9,8 +8,14 @@ button,
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
+  background-color: var(--color-green);
 }
 
-.button-green {
-    background-color: var(--color-green);
-  }
+.button-signOut {
+  background-color: white;
+  color: black;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
