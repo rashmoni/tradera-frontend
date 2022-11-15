@@ -29,8 +29,12 @@ const [newBid, setNewBid] = useState({})
 
   async function onClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-    setNewBid({traderId:2,
-              auctionItemId:1,
+    const bidderId = sessionStorage.getItem("UserId");
+    const productId = data.id;
+    console.log("Bidder id is "+bidderId)
+    console.log("Product id is "+data.id)
+    setNewBid({traderId : bidderId,
+              auctionItemId: productId,
               amount: amount+10});
     SingleProductPageService.createNewBid(newBid)
       .then(onSuccess)
