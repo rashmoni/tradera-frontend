@@ -3,7 +3,6 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CustomerRoutes from "./routes/CustomerRoutes";
 import UnloggedRoutes from "./routes/UnlogedRoutes";
-import SendingEmail from "./services/SendingEmail";
 import "./styles/style.css";
 
 export default function App() {
