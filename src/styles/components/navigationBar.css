@@ -5,6 +5,7 @@
   height: var(--navigation-bar);
   padding: 0 var(--page-space);
   align-items: center; /* used with flex to align items on the vertical axis */
+  position: fixed;
 }
 
 .navigationBar img {

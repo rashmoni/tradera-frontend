@@ -6,11 +6,11 @@ import iUser from "../interfaces/iUser";
 import LoginScreen from "./LoginScreen";
 
 interface iProps {
-  user : iUser;
-  setUser : Function
+  user: iUser;
+  setUser: Function;
 }
 
-export default function NewAd({user, setUser} : iProps) {
+export default function NewAd({ user, setUser }: iProps) {
   // Local state
   const [form, setForm] = useState({});
 
@@ -21,7 +21,7 @@ export default function NewAd({user, setUser} : iProps) {
 
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    var item = { ...form, "owner_id" : user.id};
+    var item = { ...form, owner_id: user.id };
 
     event.preventDefault();
     console.log(item);
@@ -47,9 +47,8 @@ export default function NewAd({user, setUser} : iProps) {
 
   return (
     <div id="new-ad">
-      <NavigationBar />
       <div id="form-section">
-        <h1>Create new ad, {user.name} !</h1>
+        <h1>Create a new ad, {user.name}!</h1>
         <form className="form" onSubmit={onSubmit}>
           <h1>What do you want to sell?</h1>
           <ListInput fields={Fields} state={[form, setForm]} />

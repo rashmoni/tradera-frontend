@@ -1,13 +1,9 @@
 import { FormEvent, useEffect, useState } from "react";
-import {
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import CardContainer from "../components/CardContainer";
 import InputQuery from "../components/InputQuery";
 import NavigationBar from "../components/NavigationBar";
 import iProduct from "../interfaces/iAuctionItem";
-
 
 export default function Search() {
   // Global state
@@ -44,7 +40,6 @@ export default function Search() {
 
   return (
     <div id="search">
-      <NavigationBar />
       <div className="search-field">
         <InputQuery
           setSearchParams={setSearchParams}

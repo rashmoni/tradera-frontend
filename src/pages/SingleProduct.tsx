@@ -71,7 +71,7 @@ export default function SingleProduct({user, setUser}: iProps) {
 
   return (
     <div id="singleProduct">
-      <NavigationBar />
+     
       <SingleProductCard data={product} bids={bids} />
     </div>
   );
