@@ -31,7 +31,7 @@ export default function SingleProduct({user, setUser}: iProps) {
     stop_date: 0,  
     item_image_url: ""});
   const [readyForBids, setReadyForBids] = useState(false);
-  const [bids, setBids] = useState(new Array<iBid>());
+  
 
   // Methods
   useEffect(() => {
@@ -52,27 +52,13 @@ export default function SingleProduct({user, setUser}: iProps) {
   }
   console.log(product)
 
-  useEffect(() => {
-    SingleProductPageService.getBidByItemId()
-      .then((json) => onSuccessBids(json))
-      .catch((error) => onFailureBids(error));
-  }, [readyForBids]);
-
-  function onSuccessBids(data: iBid[]) {
-    setBids(data);
-    console.log(data);
-  }
-
-  function onFailureBids(error: string) {
-    console.error(error);
-  }
 
   if (user.id === 0) return <LoginScreen user={user} setUser={setUser} />;
 
   return (
     <div id="singleProduct">
       <NavigationBar />
-      <SingleProductCard data={product} bids={bids} />
+      <SingleProductCard data={product}  />
     </div>
   );
 }

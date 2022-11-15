@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StatusEmpty from "./StatusEmpty";
 import iAuctionItem from "../interfaces/iAuctionItem";
 import Placeholder from "../assets/images/placeholder.jpg";
@@ -8,14 +8,38 @@ import SingleProductPageService from "../services/SingleProductPageService";
 
 interface iProps {
   data: iAuctionItem;
-  bids: iBid[]
 }
 
 
-export default function SingleProductCard({ data, bids }: iProps) {
+export default function SingleProductCard({ data}: iProps) {
   // Local state
 const [newBid, setNewBid] = useState({})
+const [bids, setBids] = useState(new Array<iBid>());
+const [initialBid, setInitialBid] = useState(0)
 
+useEffect(() => {
+  SingleProductPageService.getBidByItemId()
+    .then((json) => onSuccessBids(json))
+    .catch((error) => onFailureBids(error));
+}, [newBid]);
+
+function onSuccessBids(bidData: iBid[]) {
+  setBids(bidData);
+  const num = bidData.reduce((acc, shot) => acc = acc > shot.amount ? acc : shot.amount, 0);
+    console.log("Max bid "+num);
+  if(bidData.length === 0){
+    setInitialBid(data.initial_price)
+  } else {
+    const maxBid = bidData.reduce((acc, shot) => acc = acc > shot.amount ? acc : shot.amount, 0);
+    console.log("Max bid "+maxBid);
+    setInitialBid(maxBid);
+  }
+}
+
+
+function onFailureBids(error: string) {
+  console.error(error);
+}
   // Safeguard
   // if (data.length === 0) return <StatusEmpty />;
   if (data === null) return <StatusEmpty />;
@@ -25,17 +49,16 @@ const [newBid, setNewBid] = useState({})
   let amount: number= 0;
   if(bid?.amount) {
      amount = bid.amount; 
+     console.log("Amount is "+amount+" from "+bid)
   }
 
   async function onClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     const bidderId = sessionStorage.getItem("UserId");
     const productId = data.id;
-    console.log("Bidder id is "+bidderId)
-    console.log("Product id is "+data.id)
     setNewBid({traderId : bidderId,
               auctionItemId: productId,
-              amount: amount+10});
+              amount: initialBid+10});
     SingleProductPageService.createNewBid(newBid)
       .then(onSuccess)
       .catch((error) => onFailure(error));
@@ -47,7 +70,7 @@ const [newBid, setNewBid] = useState({})
 
   function onFailure(error: string) {
     console.error(error);
-    alert("Could not create item");
+    alert("Could not bid on item");
   }
  
   return (
@@ -65,7 +88,7 @@ const [newBid, setNewBid] = useState({})
           <h1 style={{ marginTop: "10px" }}>{data.item_name}</h1>
           <p>Asking price</p>
           <h1>SEK {data.initial_price}</h1>
-          <p>Heighest bid: {amount}</p>
+          <p>Heighest bid: {initialBid}</p>
           <h2>Description:</h2>
           <p>{data.description}</p>
           <p>Ends : {data.stop_date}</p>
