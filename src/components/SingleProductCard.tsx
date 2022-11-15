@@ -1,16 +1,20 @@
+/* eslint-disable jsx-a11y/alt-text */
+import { useState } from "react";
 import StatusEmpty from "./StatusEmpty";
-import SingleProductImage from "../assets/images/product.png";
 import iAuctionItem from "../interfaces/iAuctionItem";
 import Placeholder from "../assets/images/placeholder.jpg";
 import iBid from "../interfaces/iBid";
+import SingleProductPageService from "../services/SingleProductPageService";
 
 interface iProps {
   data: iAuctionItem;
   bids: iBid[]
 }
 
+
 export default function SingleProductCard({ data, bids }: iProps) {
-  // Components
+  // Local state
+const [newBid, setNewBid] = useState({})
 
   // Safeguard
   // if (data.length === 0) return <StatusEmpty />;
@@ -21,6 +25,25 @@ export default function SingleProductCard({ data, bids }: iProps) {
   let amount: number= 0;
   if(bid?.amount) {
      amount = bid.amount; 
+  }
+
+  async function onClick(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    setNewBid({traderId:2,
+              auctionItemId:1,
+              amount: amount+10});
+    SingleProductPageService.createNewBid(newBid)
+      .then(onSuccess)
+      .catch((error) => onFailure(error));
+  }
+
+  function onSuccess() {
+    alert("Bidding!");
+  }
+
+  function onFailure(error: string) {
+    console.error(error);
+    alert("Could not create item");
   }
  
   return (
@@ -42,7 +65,8 @@ export default function SingleProductCard({ data, bids }: iProps) {
           <h2>Description:</h2>
           <p>{data.description}</p>
           <p>Ends : {data.stop_date}</p>
-          <button className="productBid" style={{ width: "40%" }}>
+          <button className="productBid" style={{ width: "40%" }}
+          onClick={onClick}>
             Bid
           </button>
         </div>
