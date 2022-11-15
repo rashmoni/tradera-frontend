@@ -1,5 +1,6 @@
 // Node modules
 import { Routes, Route } from "react-router-dom";
+import NavigationBar from "../components/NavigationBar";
 import iUser from "../interfaces/iUser";
 import Landing from "../pages/Landing";
 import NewAd from "../pages/NewAd";

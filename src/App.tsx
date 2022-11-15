@@ -1,6 +1,7 @@
 // Node modules
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavigationBar from "./components/NavigationBar";
 import CustomerRoutes from "./routes/CustomerRoutes";
 import UnloggedRoutes from "./routes/UnlogedRoutes";
 import "./styles/style.css";
@@ -13,8 +14,9 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {<UnloggedRoutes user={user} setUser={setUser} />}
-        {<CustomerRoutes user={user} setUser={setUser} />}
+        <NavigationBar setUser={setUser} />
+        <UnloggedRoutes user={user} setUser={setUser} />
+        <CustomerRoutes user={user} setUser={setUser} />
       </BrowserRouter>
     </div>
   );
