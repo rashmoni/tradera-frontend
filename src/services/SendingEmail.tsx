@@ -38,8 +38,11 @@ const SendingEmail = () => {
   */
   return (
     <div>
-      <form ref={form} onSubmit={sendEmail}>
+      <form ref={form}
+      onSubmit={sendEmail}>
+        <input type="submit" value="Send" />
       </form>
+      <button onClick={sendEmail}></button>
     </div>
   )
 }

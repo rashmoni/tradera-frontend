@@ -37,8 +37,9 @@ const LoginScreen = ({user, setUser}: iProps) => {
   function onSuccess(returningUser: iUser) {
     console.log(returningUser);
     setUser(returningUser);
+    sessionStorage.setItem("UserId",String(returningUser.id));
     user.id = returningUser.id;
-    console.log(user);
+    console.log("The logged in user is "+user);
     if(returningUser.id === 0) {
       return <LoginScreen user={user} setUser={setUser} />
     }
