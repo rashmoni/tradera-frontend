@@ -22,6 +22,7 @@ export default function NavigationBar({ setUser }: iProps) {
 
   function handleClick(): void {
     setUser({ id: 0, name: "", email: "" });
+    alert("You were logged out.")
     navigate("/");
   }
 

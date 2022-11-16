@@ -22,10 +22,23 @@ const SignupScreen = () => {
         email,
         password,
       }),
-    });
-
-    navigate("/login");
+    }).then((response) => onSuccess(response))
+    .catch((error) => onFailure(error));;
   };
+
+  function onSuccess(response: any) {
+    if (!response.ok) {
+      alert("Could not create new account. Email already registered.");
+    } else {
+      alert("Account created.");
+      navigate("/login");
+    } 
+  }
+
+  function onFailure(error: string) {
+    console.error(error);
+    alert(error);
+  }
 
   return (
     <section id="signUpScreen">
