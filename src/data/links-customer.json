@@ -6,13 +6,13 @@
     },
     {
         "id": 1,
-        "label": "Momo page",
-        "url": "/"
+        "label": "New ad",
+        "url": "/selling/new"
     },
     {
         "id": 2,
-        "label": "new ad",
-        "url": "/selling/new"
+        "label": "Login",
+        "url": "/login"
     }
 
 ]

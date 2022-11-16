@@ -1,0 +1,11 @@
+#loginScreen {
+    display:grid;
+    grid-auto-rows: minmax(200px, auto);
+    
+}
+
+#loginScreen .header {
+    height: 100px;
+    display: grid;
+}
+

@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
 //Node modules
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Project files
-import Logo from "../assets/logos/logo.png"
+import Logo from "../assets/logos/logo.png";
 import CustomerLinks from "../data/links-customer.json";
 
 interface iProps {
   setUser: Function;
 }
 
-export default function NavigationBar({setUser}: iProps) {
+export default function NavigationBar({ setUser }: iProps) {
   const navigate = useNavigate();
 
   //Components
@@ -21,7 +21,7 @@ export default function NavigationBar({setUser}: iProps) {
   ));
 
   function handleClick(): void {
-    setUser({id: 0, name: "", email: ""});
+    setUser({ id: 0, name: "", email: "" });
     navigate("/");
   }
 
@@ -33,13 +33,12 @@ export default function NavigationBar({setUser}: iProps) {
       <div className="navbarLinks">{Links}</div>
       <button
         className="button-signOut"
-          onClick={() => {
-            handleClick();
-          }}
-        >
-          <p>Logout</p>
-        </button>
-      
+        onClick={() => {
+          handleClick();
+        }}
+      >
+        <p>Logout</p>
+      </button>
     </nav>
   );
 }

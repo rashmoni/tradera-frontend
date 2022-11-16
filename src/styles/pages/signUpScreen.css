@@ -1,0 +1,10 @@
+#signUpScreen {
+    display:grid;
+    grid-auto-rows: minmax(100px, auto);
+    
+}
+
+#signUpScreen .header {
+    height: 100px;
+    display: grid;
+}
