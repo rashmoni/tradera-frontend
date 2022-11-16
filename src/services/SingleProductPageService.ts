@@ -14,9 +14,9 @@ class SingleProductPageService {
           )
     }
 
-    getBidByItemId(){
+    getBidByItemId(id:number){
         return (
-            fetch(BID_END_POINT)
+            fetch(BID_END_POINT+id)
       .then((response) => response.json())
         )
     }
@@ -29,6 +29,23 @@ class SingleProductPageService {
             body: JSON.stringify(item),
           })
           )
+    }
+
+    fetchBiggestBid(dataArray:any){
+        const maxBid = dataArray.reduce((result: number, current: { amount: number; }) =>
+            result = result > current.amount ? result : current.amount, 0);
+        return maxBid;
+    }
+
+    setBidPrice(dataArray: any, bidPrice: number){
+        var maxBid = 0;
+        if(dataArray.length === 0){
+            return bidPrice;
+          } else {
+            maxBid = this.fetchBiggestBid(dataArray);
+            console.log("Max bid "+maxBid);
+            return maxBid;
+          }
     }
 }
 

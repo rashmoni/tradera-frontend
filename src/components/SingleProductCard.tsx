@@ -10,7 +10,6 @@ interface iProps {
   data: iAuctionItem;
 }
 
-
 export default function SingleProductCard({ data}: iProps) {
   // Local state
 const [newBid, setNewBid] = useState({})
@@ -18,39 +17,20 @@ const [bids, setBids] = useState(new Array<iBid>());
 const [initialBid, setInitialBid] = useState(0)
 
 useEffect(() => {
-  SingleProductPageService.getBidByItemId()
+  SingleProductPageService.getBidByItemId(data.id)
     .then((json) => onSuccessBids(json))
     .catch((error) => onFailureBids(error));
-}, [newBid]);
+}, [newBid, data]);
 
+// eslint-disable-next-line react-hooks/exhaustive-deps
 function onSuccessBids(bidData: iBid[]) {
   setBids(bidData);
-  const num = bidData.reduce((acc, shot) => acc = acc > shot.amount ? acc : shot.amount, 0);
-    console.log("Max bid "+num);
-  if(bidData.length === 0){
-    setInitialBid(data.initial_price)
-  } else {
-    const maxBid = bidData.reduce((acc, shot) => acc = acc > shot.amount ? acc : shot.amount, 0);
-    console.log("Max bid "+maxBid);
-    setInitialBid(maxBid);
-  }
+  setInitialBid(SingleProductPageService.setBidPrice(bids, data.initial_price));
 }
-
-
+console.log(bids)
 function onFailureBids(error: string) {
-  console.error(error);
+  console.error("Error while fetching biding data "+error);
 }
-  // Safeguard
-  // if (data.length === 0) return <StatusEmpty />;
-  if (data === null) return <StatusEmpty />;
-
-  
-  const bid: iBid = bids[bids.length-1];
-  let amount: number= 0;
-  if(bid?.amount) {
-     amount = bid.amount; 
-     console.log("Amount is "+amount+" from "+bid)
-  }
 
   async function onClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -65,13 +45,18 @@ function onFailureBids(error: string) {
   }
 
   function onSuccess() {
-    alert("Bidding!");
+    console.log("Bidding!"+initialBid);
+    setInitialBid(initialBid+10);
   }
 
   function onFailure(error: string) {
     console.error(error);
     alert("Could not bid on item");
   }
+
+  // Safeguard
+  // if (data.length === 0) return <StatusEmpty />;
+  if (data === null) return <StatusEmpty />;
  
   return (
     <div className="singleProductContainer">

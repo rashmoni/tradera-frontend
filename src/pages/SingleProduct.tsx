@@ -5,10 +5,10 @@ import NavigationBar from "../components/NavigationBar";
 
 import iProduct from "../interfaces/iAuctionItem";
 import SingleProductCard from "../components/SingleProductCard";
-import iBid from "../interfaces/iBid";
 import SingleProductPageService from "../services/SingleProductPageService";
 import iUser from "../interfaces/iUser";
 import LoginScreen from "./LoginScreen";
+import iBid from "../interfaces/iBid";
 
 interface iProps {
   user: iUser;
@@ -30,7 +30,8 @@ export default function SingleProduct({ user, setUser }: iProps) {
     item_image_url: "",
   });
   const [readyForBids, setReadyForBids] = useState(false);
-  
+  const [bids, setBids] = useState(new Array<iBid>());  
+  const [initialBid, setInitialBid] = useState(0);
 
   // Methods
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function SingleProduct({ user, setUser }: iProps) {
 
   return (
     <div id="singleProduct">
-      <SingleProductCard data={product}  />
+      <SingleProductCard data={product}/>
     </div>
   );
 }
