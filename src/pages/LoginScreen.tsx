@@ -39,6 +39,7 @@ const LoginScreen = ({user, setUser}: iProps) => {
     sessionStorage.setItem("UserId",String(returningUser.id));
     user.id = returningUser.id;
     if(returningUser.id === 0) {
+      alert("Could not login. Invalid credentials.");
       return <LoginScreen user={user} setUser={setUser} />
     }
     navigate("/");

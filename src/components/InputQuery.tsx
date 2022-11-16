@@ -19,12 +19,11 @@ export default function InputSearch({ searchParams, setSearchParams }: iProps) {
   return (
     <form onSubmit={(event) => handleSearch(event)}>
       <input
-        id="search-form"
+        id="searchInput"
         type="text"
         onChange={(event) => setInput(event.target.value)}
         placeholder="What are you looking for?"
       />
-      <input type="submit" value="search" />
     </form>
   );
 }

@@ -1,4 +1,11 @@
-#search-form {
+#searchInput {
   height: 48px;
   width: 400px;
+  padding-left: 35px;
+  background-image: url("../../assets/icons/search-icon.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 5px;
 }
+
