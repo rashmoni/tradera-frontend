@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 //Node modules
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Project files
 import Logo from "../assets/logos/logo.png";
