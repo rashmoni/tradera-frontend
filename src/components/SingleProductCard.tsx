@@ -24,8 +24,9 @@ useEffect(() => {
 
 // eslint-disable-next-line react-hooks/exhaustive-deps
 function onSuccessBids(bidData: iBid[]) {
+  console.log("Bid data "+bidData)
   setBids(bidData);
-  setInitialBid(SingleProductPageService.setBidPrice(bids, data.initial_price));
+  setInitialBid(SingleProductPageService.setBidPrice(bidData, data.initial_price));
 }
 console.log(bids)
 function onFailureBids(error: string) {

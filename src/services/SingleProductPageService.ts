@@ -38,9 +38,10 @@ class SingleProductPageService {
     }
 
     setBidPrice(dataArray: any, bidPrice: number){
-        var maxBid = 0;
+        var maxBid = bidPrice;
+        console.log("Bid array is "+dataArray)
         if(dataArray.length === 0){
-            return bidPrice;
+            return maxBid;
           } else {
             maxBid = this.fetchBiggestBid(dataArray);
             console.log("Max bid "+maxBid);
