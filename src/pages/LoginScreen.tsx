@@ -35,11 +35,9 @@ const LoginScreen = ({user, setUser}: iProps) => {
   };
 
   function onSuccess(returningUser: iUser) {
-    console.log(returningUser);
     setUser(returningUser);
     sessionStorage.setItem("UserId",String(returningUser.id));
     user.id = returningUser.id;
-    console.log("The logged in user is "+user);
     if(returningUser.id === 0) {
       return <LoginScreen user={user} setUser={setUser} />
     }
@@ -52,8 +50,9 @@ const LoginScreen = ({user, setUser}: iProps) => {
   }
 
   return (
-    <section>
-      <div style={{ marginTop: "65px" }}>
+    <section id="loginScreen">
+      <div>
+        <div className="header"></div>
         <FormContainer>
           <h1>Login</h1>
           <Form onSubmit={submitHandler}>
@@ -81,12 +80,13 @@ const LoginScreen = ({user, setUser}: iProps) => {
               Login
             </Button>
           </Form>
-        </FormContainer>
-        <footer>
+          <footer>
           <p>
             New to Tradera? <Link to="/registration">Sign up now</Link>.
           </p>
         </footer>
+        </FormContainer>
+        
       </div>
     </section>
   );
