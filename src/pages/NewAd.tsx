@@ -47,8 +47,9 @@ export default function NewAd({ user, setUser }: iProps) {
 
   return (
     <div id="new-ad">
+      <div className="header"></div>
       <div id="form-section">
-        <h1>Create a new ad, {user.name}!</h1>
+        <h1>Create a new ad</h1>
         <form className="form" onSubmit={onSubmit}>
           <h1>What do you want to sell?</h1>
           <ListInput fields={Fields} state={[form, setForm]} />
