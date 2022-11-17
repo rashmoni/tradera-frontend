@@ -55,6 +55,28 @@ function onFailureBids(error: string) {
     alert("Could not bid on item");
   }
 
+  function dateComparison(product_end_date: any){
+    const currentDate = formatDate(new Date());
+      console.log(product_end_date);
+      console.log(currentDate);
+      if(product_end_date < currentDate){
+       return true;
+      } 
+  }
+
+function formatDate(date: Date) {
+  return (
+    [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join('-') 
+  );
+}
+
+function padTo2Digits(num: number) {
+  return num.toString().padStart(2, '0');
+}
   // Safeguard
   // if (data.length === 0) return <StatusEmpty />;
   if (data === null) return <StatusEmpty />;
@@ -78,10 +100,10 @@ function onFailureBids(error: string) {
           <h2>Description:</h2>
           <p>{data.description}</p>
           <p>Ends : {data.stop_date}</p>
-          <button className="productBid" style={{ width: "40%" }}
-          onClick={onClick}>
+           {!dateComparison(data.stop_date) && <button className="productBid" style={{ width: "40%" }}
+          onClick={onClick} >
             Bid
-          </button>
+          </button>}
         </div>
       </section>
     </div>
