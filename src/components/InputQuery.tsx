@@ -17,13 +17,14 @@ export default function InputSearch({ searchParams, setSearchParams }: iProps) {
   };
 
   return (
-    <form onSubmit={(event) => handleSearch(event)}>
+    <form className="searchForm" onSubmit={(event) => handleSearch(event)}>
       <input
         id="searchInput"
         type="text"
         onChange={(event) => setInput(event.target.value)}
         placeholder="What are you looking for?"
       />
+      <input className="searchButton" type="submit" value=""/>
     </form>
   );
 }

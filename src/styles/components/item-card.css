@@ -7,3 +7,11 @@
   cursor: pointer;
 }
 
+.image-wrapper {
+  overflow: hidden;
+}
+
+.item-card img:hover{
+  transform: scale(1.2);
+}
+

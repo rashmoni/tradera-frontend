@@ -1,11 +1,27 @@
+.searchForm{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #searchInput {
   height: 48px;
   width: 400px;
-  padding-left: 35px;
+  padding-left: 10px;
+}
+
+.searchButton {
+  height: 48px;
+  width: 48px;
+  border: none;
+  background-color: white;
   background-image: url("../../assets/icons/search-icon.png");
   background-size: 20px;
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 5px;
+  background-position-x: center;
+}
+
+.searchButton:hover {
+  background-color: lightgray;
 }
 
