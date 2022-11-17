@@ -25,7 +25,7 @@ export default function InputSearch() {
   };
 
   return (
-    <form id="searchForm" onSubmit={(event) => handleSearch(event) }>
+    <form className="searchForm" onSubmit={(event) => handleSearch(event) }>
       <input
         id="searchInput"
         type="text"
@@ -33,6 +33,7 @@ export default function InputSearch() {
         onChange={(event) => setSearchTerm(event.target.value)}
         placeholder="What are you looking for?"
       />
+      <input className="searchButton" type="submit" value=""/>
     </form>
   );
 }
