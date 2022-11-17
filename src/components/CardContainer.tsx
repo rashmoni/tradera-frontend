@@ -17,8 +17,8 @@ export default function CardContainer({ data }: iProps) {
   if (data.length === 0) return <StatusEmpty />;
 
   return (
-    <section className="card-list">
-      <div>{Cards}</div>
+    <section >
+      <div className="card-list">{Cards}</div>
     </section>
   );
 }

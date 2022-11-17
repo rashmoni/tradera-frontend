@@ -1,0 +1,5 @@
+.card-list {
+    display: grid;
+    grid-gap: var(--space-medium);
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+}
