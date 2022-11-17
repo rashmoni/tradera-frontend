@@ -31,23 +31,7 @@ class SingleProductPageService {
           )
     }
 
-    fetchBiggestBid(dataArray:any){
-        const maxBid = dataArray.reduce((result: number, current: { amount: number; }, index: number) =>
-            result = result > current.amount ? result : current.amount, 0);
-        return maxBid;
-    }
-
-    setBidPrice(dataArray: any, bidPrice: number){
-        var maxBid = bidPrice;
-        console.log("Bid array is "+dataArray)
-        if(dataArray.length === 0){
-            return maxBid;
-          } else {
-            maxBid = this.fetchBiggestBid(dataArray);
-            console.log("Max bid "+maxBid);
-            return maxBid;
-          }
-    }
+    
 }
 
 export default new SingleProductPageService()
