@@ -16,6 +16,7 @@ const SignupHeader = ({ firstName, setFirstName }: Props) => {
     })
 
     setFirstName('')
+    sessionStorage.removeItem("UserId");
   }
 
   return (
