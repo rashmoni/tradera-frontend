@@ -15,6 +15,7 @@ export default function SingleProductCard({ data}: iProps) {
 const [newBid, setNewBid] = useState({})
 const [bids, setBids] = useState(new Array<iBid>());
 const [initialBid, setInitialBid] = useState(0)
+const [winnerTrader, setWinnerTrader]: any = useState(0)
 
 useEffect(() => {
   SingleProductPageService.getBidByItemId(data.id)
@@ -60,8 +61,18 @@ function onFailureBids(error: string) {
       console.log(product_end_date);
       console.log(currentDate);
       if(product_end_date < currentDate){
+        SingleProductPageService.getBidByItemId(data.id)
+        .then((json) => getBidWinner(json))
+        .catch((error) => console.error(error));
        return true;
       } 
+  }
+  function getBidWinner(bidArray: iBid[]){
+      let bidWinner: any = bidArray.find(bid => bid.amount === initialBid);
+      for (const [key, value] of Object.entries(bidWinner)) {
+        if(key === "traderId")
+        {setWinnerTrader(value)}
+      }
   }
 
 function formatDate(date: Date) {
@@ -104,6 +115,7 @@ function padTo2Digits(num: number) {
           onClick={onClick} >
             Bid
           </button>}
+          {dateComparison(data.stop_date) && <h1>The winner has id {winnerTrader}</h1>}
         </div>
       </section>
     </div>

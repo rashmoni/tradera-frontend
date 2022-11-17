@@ -45,6 +45,7 @@ export default function SingleProduct({ user, setUser }: iProps) {
   function onSuccess(data: iProduct) {
     setProduct(data);
     setReadyForBids(true);
+    console.log(data)
   }
 
   function onFailure(error: string) {

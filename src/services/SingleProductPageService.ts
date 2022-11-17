@@ -32,7 +32,7 @@ class SingleProductPageService {
     }
 
     fetchBiggestBid(dataArray:any){
-        const maxBid = dataArray.reduce((result: number, current: { amount: number; }) =>
+        const maxBid = dataArray.reduce((result: number, current: { amount: number; }, index: number) =>
             result = result > current.amount ? result : current.amount, 0);
         return maxBid;
     }
