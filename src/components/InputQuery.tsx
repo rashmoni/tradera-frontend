@@ -2,18 +2,18 @@ import { FormEvent, useState } from "react";
 
 interface iProps {
   setSearchParams: Function;
-  searchParams: any;
+
 }
 
-export default function InputSearch({ searchParams, setSearchParams }: iProps) {
+export default function InputSearch({ setSearchParams }: iProps) {
   const [input, setInput] = useState("");
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const key: string = "query";
     const valuePair: string = "query" + "=" + input;
-    const sp = new URLSearchParams(valuePair);
-    setSearchParams(sp);
+    const searchParams = new URLSearchParams(valuePair);
+    setSearchParams(searchParams);
   };
 
   return (

@@ -1,8 +1,7 @@
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import CardContainer from "../components/CardContainer";
 import InputQuery from "../components/InputQuery";
-import NavigationBar from "../components/NavigationBar";
 import iProduct from "../interfaces/iAuctionItem";
 
 export default function Search() {
@@ -24,6 +23,11 @@ export default function Search() {
   }, [searchParams]);
 
   useEffect(() => {
+    const key: string = "query";
+    const valuePair: string = "query" + "=" + code;
+    const searchParams = new URLSearchParams(valuePair);
+    setSearchParams(searchParams);
+    
     fetch(endPoint + code)
       .then((response) => response.json())
       .then((json) => onSuccess(json))
@@ -43,7 +47,6 @@ export default function Search() {
       <div className="search-field">
         <InputQuery
           setSearchParams={setSearchParams}
-          searchParams={searchParams}
         />
       </div>
       <CardContainer data={items} />
