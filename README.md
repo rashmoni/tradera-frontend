@@ -1,46 +1,103 @@
-# Getting Started with Create React App
+# Tradera
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The frontend for project #6 in the TietoEvry Java Course.
 
-## Available Scripts
+# Figma Design protoype link
 
-In the project directory, you can run:
+The link mentioned below contains prototypes for our website pages.
+https://www.figma.com/files/team/1169204608982214828/Tredara?fuid=998278445342017161
 
-### `npm start`
+# About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a frontend part of Tradera project 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Installation
 
-### `npm test`
+#0 Clone the repository
+#0 Open a terminal and type `npm install` inside the repository folder
+#0 Run `npm start` to open the project in `localhost:3000`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Organization
 
-### `npm run build`
+This is a complex project, thus here are some hierarchy diagrams to understand the project structure.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Starting Point Component
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The entry point is `App.tsx`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Project folder structure inside src folder
 
-### `npm run eject`
+## 1. assets
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This folder contains all required images, logos and icons for project.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 2. components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This folder contains files for child components that are connected to parnet components present inside page folder.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 3. data
 
-## Learn More
+This folder contains json files for navbar and routing components. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 4. interfaces
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This folder contains files for typescript interface code.
+
+## 5. pages
+
+This folder contains main components or in other words parent component that are acting as pages when used in routing component.
+
+## 6. routes
+
+This folder contains all code related to routing.
+
+## 7. scripts 
+
+This folder contains code for image resizing and other stuff related to it. 
+
+## 8. services
+
+This folder contains classes files that contains functions related to bidding, bidding end data and fetching required data from backend for successfull bidding.
+
+## 9. styles
+
+This folder contains all css styling files for this project
+
+# Page component deatils
+
+## 1. Landing Page
+
+This page component contains 
+    
+    1. Banner component which displays a banner with searchbar so that a user can search required products.
+    2. Card container which displays all available products in our database.
+
+![](src/assets/readme_images/LandingPage.png)
+
+## 2. LoginScreen
+
+This page component handles login functionalities for our frontend project.
+
+## 3. NewAd
+
+This page component contains all code related to creating a new product ad for tradera site.
+
+## 4. Search
+
+This page component contains all code related to search product functionality and displaying search results. 
+
+![](src/assets/readme_images/SearchPage.png)
+
+## 5. SigUpScreen
+
+This page component contains all code related to sign up. 
+
+## 6. SingleProdcut
+
+This page component is a parent component of SingleProductCard component which handles the code related to 
+
+1. Getting the highest bid from backend otherwise display the asking price as current highest bid.
+2. Date comparison functionalities related to checking bidding expiry date.
+3. Code related to bidding and allowing user if bidding is still open or closed according to closing time.
+4. Displaying the winner id incase of bidding close.
+5. This component use other components inside services folder for fetching the required data for example bidding data, user data, creating a new bid and all required functionalities mentioned above.
