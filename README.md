@@ -1,103 +1,51 @@
-# Tradera
+# Tradera Frontend
+Project 6 of Intensive Java Course.
+Novare Potential and TietoEvry
 
-The frontend for project #6 in the TietoEvry Java Course.
+## Table of contents
+* [Introduction](#introduction)
+* [Collaboration](#collaboration)
+* [Technologies](#technologies)
+* [Description](#description)
+* [Run](#run)
 
-# Figma Design protoype link
+# Introduction
+Tradera is an online platform for selling items through auction.
+Traders can add item so that other user can bid for it and the winner will be able to buy the product.
+Tradera Fronent allows user to use Tradera website and add new ad, view all bidding items, bid on an item and search 
+for required item.
+The first step was creating website prototype by using [figma](
+https://www.figma.com/files/team/1169204608982214828/Tredara?fuid=998278445342017161).
+The frontend is created by using html, css, reactjs and is connected with [backend](https://github.com/rashmoni/tradera-backend.git).
 
-The link mentioned below contains prototypes for our website pages.
-https://www.figma.com/files/team/1169204608982214828/Tredara?fuid=998278445342017161
+# Collaboration
+This is a team project, all Project management, Frontend and backend are developed in collaboration.
 
-# About
+### Team Members -
+1. Malla Gronqvist
+2. Mumtaz Fatima 
+3. Rashmoni Dey
 
-This is a frontend part of Tradera project 
+# Technologies 
+* HTML
+* CSS
+* React
+* Figma
 
-# Installation
+ # Description
+Landing Page is the first page which will be viewed to the user which contains a search option along with all the products images shown. The landing page also contains navigation bar that helps the person to navigate through different pages like create new ad, login and logout. <BR />
+The login pages helps the person to login and incase a person is a new user there is a signup option inside the login page to signup. <BR />
+If a person wants to bid on an item then the person has to login first to do bidding and same is for creating a new add. In case if the bidding time is over then the bidding button will be not shown on the webpage and the trader id who wins the bid will be displayed on the screen.
 
-#0 Clone the repository
-#0 Open a terminal and type `npm install` inside the repository folder
-#0 Run `npm start` to open the project in `localhost:3000`
+# Run
+To run this application do the following steps:
+1. Clone the repository
+2. Open a terminal and type `npm install` inside the repository folder
+3. Run `npm start` to open the project in `localhost:3000`
+4. Visite the [backend](https://github.com/rashmoni/tradera-backend.git) repo in order to run the backend code.
 
-# Organization
 
-This is a complex project, thus here are some hierarchy diagrams to understand the project structure.
-
-# Starting Point Component
-
-The entry point is `App.tsx`.
-
-# Project folder structure inside src folder
-
-## 1. assets
-
-This folder contains all required images, logos and icons for project.
-
-## 2. components
-
-This folder contains files for child components that are connected to parnet components present inside page folder.
-
-## 3. data
-
-This folder contains json files for navbar and routing components. 
-
-## 4. interfaces
-
-This folder contains files for typescript interface code.
-
-## 5. pages
-
-This folder contains main components or in other words parent component that are acting as pages when used in routing component.
-
-## 6. routes
-
-This folder contains all code related to routing.
-
-## 7. scripts 
-
-This folder contains code for image resizing and other stuff related to it. 
-
-## 8. services
-
-This folder contains classes files that contains functions related to bidding, bidding end data and fetching required data from backend for successfull bidding.
-
-## 9. styles
-
-This folder contains all css styling files for this project
-
-# Page component deatils
-
-## 1. Landing Page
-
-This page component contains 
-    
-    1. Banner component which displays a banner with searchbar so that a user can search required products.
-    2. Card container which displays all available products in our database.
-
-![](src/assets/readme_images/LandingPage.png)
-
-## 2. LoginScreen
-
-This page component handles login functionalities for our frontend project.
-
-## 3. NewAd
-
-This page component contains all code related to creating a new product ad for tradera site.
-
-## 4. Search
-
-This page component contains all code related to search product functionality and displaying search results. 
-
-![](src/assets/readme_images/SearchPage.png)
-
-## 5. SigUpScreen
-
-This page component contains all code related to sign up. 
-
-## 6. SingleProdcut
-
-This page component is a parent component of SingleProductCard component which handles the code related to 
-
-1. Getting the highest bid from backend otherwise display the asking price as current highest bid.
-2. Date comparison functionalities related to checking bidding expiry date.
-3. Code related to bidding and allowing user if bidding is still open or closed according to closing time.
-4. Displaying the winner id incase of bidding close.
-5. This component use other components inside services folder for fetching the required data for example bidding data, user data, creating a new bid and all required functionalities mentioned above.
+# Resourse and links
+-   [Product backlog](https://trello.com/invite/b/LJiEMx6W/ATTI042f6b18364db45619db75d20139abefA0706DB0/tredara)
+-   [Tradera website prototype](https://www.figma.com/files/team/1169204608982214828/Tredara?fuid=998278445342017161)
+-   [Tradera backend project](https://github.com/rashmoni/tradera-backend.git)
