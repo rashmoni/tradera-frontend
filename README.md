@@ -58,5 +58,41 @@ This folder contains classes files that contains functions related to bidding, b
 
 This folder contains all css styling files for this project
 
+# Page component deatils
 
+## 1. Landing Page
 
+This page component contains 
+    
+    1. Banner component which displays a banner with searchbar so that a user can search required products.
+    2. Card container which displays all available products in our database.
+
+![](src/assets/readme_images/LandingPage.png)
+
+## 2. LoginScreen
+
+This page component handles login functionalities for our frontend project.
+
+## 3. NewAd
+
+This page component contains all code related to creating a new product ad for tradera site.
+
+## 4. Search
+
+This page component contains all code related to search product functionality and displaying search results. 
+
+![](src/assets/readme_images/SearchPage.png)
+
+## 5. SigUpScreen
+
+This page component contains all code related to sign up. 
+
+## 6. SingleProdcut
+
+This page component is a parent component of SingleProductCard component which handles the code related to 
+
+1. Getting the highest bid from backend otherwise display the asking price as current highest bid.
+2. Date comparison functionalities related to checking bidding expiry date.
+3. Code related to bidding and allowing user if bidding is still open or closed according to closing time.
+4. Displaying the winner id incase of bidding close.
+5. This component use other components inside services folder for fetching the required data for example bidding data, user data, creating a new bid and all required functionalities mentioned above.
