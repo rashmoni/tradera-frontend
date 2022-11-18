@@ -1,50 +1,34 @@
-import React, { FormEvent, useEffect, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import { send } from 'process';
+import { useState } from 'react';
 
-const SendingEmail = () => {
-  const form: any = useRef(null);
-  const current = new Date();
-
-  const templateParams: any = {
-    name: 'Mumtaz',
-    notes: 'Check this out!',
-    email: 'shereenfatima1000@gmail.com'
-};
-
-  const currentDate = `${current.getDate()}${current.getMonth()+1}${current.getFullYear()}`;
-  const SERVICE_ID = "service_oyhwjo6";
+const SERVICE_ID = "service_oyhwjo6";
   const TEMPLATE_ID = "template_cef8s9l";
   const PUBLIC_KEY = "jxBw8W1xL1Z8Z21Ar";
 
+class SendingEmail {
+  sendEmail(dataArray: any){
+    let traderEmail: any;
+    let traderName: any;
 
-  const sendEmail = () => {
+    for (const [key, value] of Object.entries(dataArray)) {
+      if(key === "email"){traderEmail=value}
+      if(key === "name"){traderName=value}}
+
+    const templateParams: any = {
+      name: traderName,
+      email: traderEmail
+    };
+    
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams , PUBLIC_KEY)
       .then((result: any) => {
           console.log("Success!", result.text);
+          return true
       }, (error: any) => {
           console.log(error.text);
+          return false
       });
-
-  };
-  /* 
-  useEffect(() => {
-    if(currentDate === "14112022")
-    {
-      setValue("mumtaz.fatima1000@gmail.com");
-      sendEmail();
     }
-  },[])
-  */
-  return (
-    <div>
-      <form ref={form}
-      onSubmit={sendEmail}>
-        <input type="submit" value="Send" />
-      </form>
-      <button onClick={sendEmail}></button>
-    </div>
-  )
 }
 
-export default SendingEmail
+export default new SendingEmail()

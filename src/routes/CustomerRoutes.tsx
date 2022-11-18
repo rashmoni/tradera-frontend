@@ -21,7 +21,6 @@ export default function CustomerRoutes({user, setUser}: iProps) {
           <Route path="/auction/:code" element={<SingleProduct user={user} setUser={setUser}/>} />
           <Route path="/selling/new" element={<NewAd user={user} setUser={setUser}/>} />
           <Route path="/search/:code" element={<Search />} />
-          <Route path="/email" element={<SendingEmail />} />
     </Routes>
   );
 }

@@ -2,6 +2,7 @@ import React from "react"
 
 const PRODUCTS_END_POINT = "http://localhost:9000/auctions";
 const BID_END_POINT = "http://localhost:9000/bids/";
+const TRADER_END_POINT = "http://localhost:9000/traders/"
 const METHOD = "POST";
 const HEADERS = { "Content-type": "application/json; charset=UTF-8" };
 
@@ -31,6 +32,12 @@ class SingleProductPageService {
           )
     }
 
+    getTraderById(id:number){
+        return (
+            fetch(TRADER_END_POINT+id)
+      .then((response) => response.json())
+        )
+    }
     
 }
 
