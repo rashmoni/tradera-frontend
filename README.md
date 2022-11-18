@@ -16,10 +16,10 @@ Tradera Fronent allows user to use Tradera website and add new ad, view all bidd
 for required item.
 The first step was creating website prototype by using [figma](
 https://www.figma.com/files/team/1169204608982214828/Tredara?fuid=998278445342017161).
-The frontend is created by using html, css, reactjs and is connected with [backend](https://github.com/rashmoni/tradera-backend.git).
+The frontend is created by using HTML, CSS, ReactJS and is connected with [backend](https://github.com/rashmoni/tradera-backend.git).
 
 # Collaboration
-This is a team project, all Project management, Frontend and backend are developed in collaboration.
+This is a team project, all Project management, Frontend and Backend are developed in collaboration.
 
 ### Team Members -
 1. Malla Gronqvist
@@ -29,7 +29,7 @@ This is a team project, all Project management, Frontend and backend are develop
 # Technologies 
 * HTML
 * CSS
-* React
+* React v. 18.2.0
 * Figma
 
  # Description

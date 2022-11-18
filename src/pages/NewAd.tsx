@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
 import ListInput from "../components/ListInput";
 import Fields from "../data/fields-item.json";
-import NavigationBar from "../components/NavigationBar";
 import iUser from "../interfaces/iUser";
 import LoginScreen from "./LoginScreen";
 
@@ -24,7 +23,6 @@ export default function NewAd({ user, setUser }: iProps) {
     var item = { ...form, owner_id: user.id };
 
     event.preventDefault();
-    console.log(item);
     fetch(endPoint, {
       method: METHOD,
       headers: HEADERS,
