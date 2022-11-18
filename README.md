@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Tradera
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The frontend for project #6 in the TietoEvry Java Course.
 
-## Available Scripts
+# About
 
-In the project directory, you can run:
+This is a frontend part of Tradera project 
 
-### `npm start`
+# Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#0 Clone the repository
+#0 Open a terminal and type `npm install` inside the repository folder
+#0 Run `npm start` to open the project in `localhost:3000`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Organization
 
-### `npm test`
+This is a complex project, thus here are some hierarchy diagrams to understand the project structure.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Starting Point Component
 
-### `npm run build`
+The entry point is `App.tsx`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Project folder structure inside src folder
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 1. assets
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This folder contains all required images, logos and icons for project.
 
-### `npm run eject`
+## 2. components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This folder contains files for child components that are connected to parnet components present inside page folder.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 3. data
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This folder contains json files for navbar and routing components. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 4. interfaces
 
-## Learn More
+This folder contains files for typescript interface code.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 5. pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This folder contains main components or in other words parent component that are acting as pages when used in routing component.
+
+## 6. routes
+
+This folder contains all code related to routing.
+
+## 7. scripts 
+
+This folder contains code for image resizing and other stuff related to it. 
+
+## 8. services
+
+This folder contains classes files that contains functions related to bidding, bidding end data and fetching required data from backend for successfull bidding.
+
+## 9. styles
+
+This folder contains all css styling files for this project
+
+
+
