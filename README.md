@@ -2,6 +2,11 @@
 
 The frontend for project #6 in the TietoEvry Java Course.
 
+# Figma Design protoype link
+
+The link mentioned below contains prototypes for our website pages.
+https://www.figma.com/files/team/1169204608982214828/Tredara?fuid=998278445342017161
+
 # About
 
 This is a frontend part of Tradera project 
