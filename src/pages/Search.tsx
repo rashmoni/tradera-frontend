@@ -23,7 +23,6 @@ export default function Search() {
   }, [searchParams]);
 
   useEffect(() => {
-    const key: string = "query";
     const valuePair: string = "query" + "=" + code;
     const searchParams = new URLSearchParams(valuePair);
     setSearchParams(searchParams);
