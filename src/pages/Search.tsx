@@ -27,7 +27,7 @@ export default function Search() {
     const valuePair: string = "query" + "=" + code;
     const searchParams = new URLSearchParams(valuePair);
     setSearchParams(searchParams);
-    
+
     fetch(endPoint + code)
       .then((response) => response.json())
       .then((json) => onSuccess(json))
@@ -45,9 +45,7 @@ export default function Search() {
   return (
     <div id="search">
       <div className="search-field">
-        <InputQuery
-          setSearchParams={setSearchParams}
-        />
+        <InputQuery setSearchParams={setSearchParams} />
       </div>
       <CardContainer data={items} />
     </div>
